@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import { Button, Input } from '@mui/material';
-import canvas from './assets/canvas.jpg'
+import canvas from './assets/canvas.jpg';
+import {useNavigate} from 'react-router-dom';
 
 function Form(props) {
 
+    const navigate = useNavigate();
     const [student, setStudent] = useState({
         name: '',
         father: '',
@@ -60,7 +62,12 @@ function Form(props) {
                 <div className=' w-3/4 mx-auto mt-8 flex justify-center'>
                     <Button onClick={uploadStudent} variant="contained" className=' w-full'>submit</Button>
                 </div>
+                <div className=' w-3/4 mx-auto mt-8 flex justify-center'>
+                    <Button
+                        onClick={()=>navigate('/table')} variant='outlined'>Display Table</Button>
+                </div>
             </div>
+            
         </div>
     )
 }
